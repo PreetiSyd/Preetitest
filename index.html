@@ -15,7 +15,7 @@
 </head>
 
 <body>
-   
+
     <div class="container">
         <h3 id="plannerHeading">Task Planner</h3>
         <button id="btnAddTask" type="button" class="btn btn-primary mt-4" data-toggle="modal"
@@ -44,7 +44,7 @@
                                     </label>
                                     <input id="txtTaskName" type="text" class="form-control"
                                         pattern=(?=.*[a-z,A-Z]).{8,} title="with a minimum of '8' characters."
-                                        placeholder="Enter the task" required>
+                                        placeholder=" " required>
                                     <div class="valid-feedback">
                                         Task name validated successfully
                                     </div>
@@ -58,7 +58,7 @@
                                     </label>
                                     <input id="txtTaskDec" type="text" class="form-control"
                                         pattern=(?=.*[a-z,A-Z]).{15,} title="with a minimum of '15' characters."
-                                        placeholder="Enter the task description" required>
+                                        placeholder=" " required>
                                     <div class="valid-feedback">
                                         Task description validated successfully
                                     </div>
@@ -72,9 +72,9 @@
                                             <dt>Due Date</dt>
                                         </label>
                                         <input id="duedate" type="date" class="form-control"
-                                            title="Date cannot be empty" placeholder="dd/mm/yyyy" required>
+                                            title="Date cannot be empty" placeholder=" " required>
                                         <div class="valid-feedback">
-                                            Due date validated
+                                            Due date validated successfully
                                         </div>
                                         <div class="invalid-feedback">
                                             Enter the due date
@@ -85,7 +85,7 @@
                                             <dt>Assigned To</dt>
                                         </label>
                                         <input id="txtTaskAssigned" type="text" class="form-control"
-                                            pattern=(?=.*[a-z,A-Z]).{8,} placeholder="Who is assigned to" required>
+                                            pattern=(?=.*[a-z,A-Z]).{8,} placeholder=" " required>
                                         <div class="valid-feedback">
                                             Task Assigned To validated successfully
                                         </div>
@@ -100,6 +100,7 @@
                                         <dt>Status</dt>
                                     </label>
                                     <select class="form-control" id="selectStatus">
+                                        <option>Choose...</option>
                                         <option>To Do</option>
                                         <option>In Progress</option>
                                         <option>Review</option>
@@ -112,12 +113,12 @@
                                 <button type="submit" class="btn btn-primary" id="btnSubmit">Save</button>
                             </div>
                         </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-            </div>
         </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
     </div>
     <script src="script.js"></script>
 

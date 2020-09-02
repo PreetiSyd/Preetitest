@@ -7,10 +7,7 @@ class Task {
       this.AssignedTo = assignedTo;
       this.Status = status;
   }
- 
 }
-//End of Task Class
-
 
 
 class TaskManager {
@@ -20,7 +17,6 @@ class TaskManager {
       this.ID = parseInt(localStorage.getItem('currentId')) || 501;
       localStorage.setItem('currentId', this.ID);
   }
-
 
   addTask(name, desc, duedate, assignto, status) {
       const addNewTask = new Task(this.ID++, name, desc, duedate, assignto, status);
@@ -32,24 +28,18 @@ class TaskManager {
       let myTaskStorage = JSON.parse(localStorage.getItem("mytasks")) || [];
       myTaskStorage.push(addNewTask);
       localStorage.setItem('mytasks', JSON.stringify(myTaskStorage));
-      window.location.reload();
-  
+      window.location.reload();  
   }
-
 
   deleteTask(id) {
       this.tasks = this.tasks.filter((h) => h.ID != id);
-
 
       //Deleting from Local storage
       let myTaskStorage = JSON.parse(localStorage.getItem('mytasks'));
       myTaskStorage = myTaskStorage.filter((h) => h.ID !=id);
       localStorage.setItem('mytasks', JSON.stringify(myTaskStorage));
-      window.location.reload();
-      
-      
+      window.location.reload();     
   }
-
 
   editTask(taskId, name, desc, duedate, assignedTo, status) {
       for (var i = 0; i < this.tasks.length; i++) {
@@ -65,9 +55,9 @@ class TaskManager {
               myTaskStorage[i].TaskName = name;
               myTaskStorage[i].TaskDesc = desc;
               myTaskStorage[i].AssignedTo = assignedTo;
-              myTaskStoragee[i].DueDate = duedate;
+              myTaskStorage[i].DueDate = duedate;
               myTaskStorage[i].Status = status;
-              localStorage.setItem('mytasks', JSON.stringify(myTaskStoragee));
+              localStorage.setItem('mytasks', JSON.stringify(myTaskStorage));
               break;
           }
       }
@@ -75,21 +65,13 @@ class TaskManager {
 
   }
 }
-//End of Task Manager Class
 
-
-
-// Accessing the DOM element to append bootsrap card
 const taskContainer = document.querySelector("#taskContainer");
 // Creating taskAdmin Object
 var taskAdmin = new TaskManager(taskContainer);
 
-
-
 //Loading Tasks from Storage.
 displayTasksFromStorage(); 
-
-
 
 
 // Add task button click event listener. when clicked on 'Add Task' button, the label for the model has to change it back to 'Add Task'
@@ -99,8 +81,6 @@ document.querySelector('#btnAddTask').addEventListener('click', (e) => {
   console.log(document.getElementById("taskModalLabel").innerHTML);
 });
 
-
-
 document.querySelector('#formAddTask').addEventListener('submit', (e) => {
   e.preventDefault();
   taskFormSubmitClick();
@@ -108,8 +88,6 @@ document.querySelector('#formAddTask').addEventListener('submit', (e) => {
   // hiding the form modal
   $('#taskModal').modal('hide');
 });
-
-
 
 function taskFormSubmitClick() {
   // Getting the values form the modal
@@ -129,8 +107,6 @@ function taskFormSubmitClick() {
       taskAdmin.addTask(taskName, taskDesc, dueDate, taskAssignedTo, taskStatus);
   }
 }
-
-
 
 function deleteTaskClicked(event) {
   //Confirmation before deleting the task
